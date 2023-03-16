@@ -1,2 +1,4 @@
-package org.example.steps;public class MainSteps {
+package org.example.steps;
+
+public class MainSteps {
 }

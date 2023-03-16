@@ -1,2 +1,4 @@
-package org.example.pages;public class CorePage {
+package org.example.pages;
+
+public abstract class CorePage {
 }

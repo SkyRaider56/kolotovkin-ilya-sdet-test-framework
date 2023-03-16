@@ -1,0 +1,9 @@
+{
+  "testUser": {
+    "login": "standard_user",
+    "password": "secret_sauce",
+    "name": "Ilya",
+    "lastName": "Kolotovkin",
+    "zipCode": "630511"
+  }
+}

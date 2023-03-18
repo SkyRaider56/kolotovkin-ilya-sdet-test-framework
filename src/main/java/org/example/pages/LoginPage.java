@@ -14,4 +14,15 @@ public class LoginPage extends CorePage {
     private By loginButton = By.xpath("input[type='submit']");
     private By wrongCredentialsButton = By.cssSelector("h3[data-test='error']");
 
+    // TODO эксепшены на методы
+    public LoginPage enterCredetials () {
+        driver.findElement(userNameInputField).sendKeys();
+        driver.findElement(userPasswordInputField).sendKeys();
+        return this;
+    }
+
+    public LoginPage clickLogin() {
+        driver.findElement(loginButton).click();
+        return this;
+    }
 }

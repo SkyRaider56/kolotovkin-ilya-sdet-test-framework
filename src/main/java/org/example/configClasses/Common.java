@@ -14,7 +14,7 @@ public class Common {
         WebDriver driver = null;
         switch (BROWSER) {
             case "chrome":
-                System.setProperty("webdriver.chrome.driver", "src"); // TODO Допилить
+                System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver111.exe"); // TODO Допилить
                 driver = new ChromeDriver();
                 break;
             default:

@@ -14,14 +14,14 @@ public class Common {
         WebDriver driver = null;
         switch (BROWSER) {
             case "chrome":
-                System.setProperty("webdriver.chrome.driver", "src"); // Допилить
+                System.setProperty("webdriver.chrome.driver", "src"); // TODO Допилить
                 driver = new ChromeDriver();
                 break;
             default:
                 Assert.fail("Incorrect browser name: " + BROWSER);
         }
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS); // Хардкод убрать, вынести в константу
+        driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS); // TODO Хардкод убрать, вынести в константу
         return driver;
     }
 }

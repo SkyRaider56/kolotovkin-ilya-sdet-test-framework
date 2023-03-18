@@ -1,3 +1,4 @@
 {
-    "BackpackTitle" : "Sauce Labs Backpack"
+    "BackpackTitle" : "Sauce Labs Backpack",
+    "OrderCompletedText": "Thank you for your order!"
 }

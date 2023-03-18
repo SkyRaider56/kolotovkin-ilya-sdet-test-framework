@@ -15,6 +15,8 @@ public class BuyItemTest extends CoreTest {
 
     @Test
     public void itemBoughtCase() {
+        mainPage.shoppingCartLinkIsVisible();
         mainPage.addToCartFirstItem();
+        mainPage.shoppingCartBadgeIsVisible();
     }
 }

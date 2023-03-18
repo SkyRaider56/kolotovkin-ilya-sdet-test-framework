@@ -20,4 +20,15 @@ public class MainPage extends CorePage {
     public void goToCart() {
         driver.findElement(shoppingCartLink).click();
     }
+    // TODO видимость элементов в одельный метод
+    public void shoppingCartBadgeIsVisible() {
+        driver.findElement(shoppingCartBadge).isDisplayed();
+    }
+    public void shoppingCartLinkIsVisible() {
+        driver.findElement(shoppingCartLink).isDisplayed();
+    }
+    public void setShoppingCartHasItems(Integer count) {
+       driver.findElement(shoppingCartBadge).getText();
+
+    }
 }

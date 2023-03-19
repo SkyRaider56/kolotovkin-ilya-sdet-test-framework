@@ -24,12 +24,6 @@ public class CoreTest {
 
    protected PrimaryHeader primaryHeader = new PrimaryHeader(driver);
 
-   @BeforeTest
-   public void openAndLogin() {
-       corePage.openUrl("{baseURI}");
-       loginPage.enterCredetials();
-       loginPage.clickLogin();
-   }
     @AfterTest
     public void clearCookies() {
         if (CLEAR_COOKIES) {

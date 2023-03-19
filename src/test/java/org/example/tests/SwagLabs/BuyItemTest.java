@@ -7,7 +7,7 @@ public class BuyItemTest extends CoreTest {
     @Test
     public void itemBoughtCase() {
         corePage.openUrl("https://www.saucedemo.com/");
-        loginPage.enterCredetials();
+        loginPage.enterCredetials("standard_user", "secret_sauce");
         loginPage.clickLogin();
         primaryHeader.shoppingCartLinkIsVisible();
         mainPage.addToCartFirstItem();

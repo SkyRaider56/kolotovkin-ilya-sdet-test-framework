@@ -3,6 +3,7 @@ package org.example.pages;
 import org.example.configClasses.CorePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class LoginPage extends CorePage {
     public LoginPage(WebDriver driver) {
@@ -15,13 +16,22 @@ public class LoginPage extends CorePage {
     private By wrongCredentialsButton = By.cssSelector("h3[data-test='error']");
 
     // TODO эксепшены на методы
-    public LoginPage enterCredetials () {
-        driver.findElement(userNameInputField).sendKeys("standard_user");
-        driver.findElement(userPasswordInputField).sendKeys("secret_sauce");
+    public LoginPage enterCredetials(String login, String password) {
+        driver.findElement(userNameInputField).sendKeys(login);
+        driver.findElement(userPasswordInputField).sendKeys(password);
         return this;
     }
 
     public void clickLogin() {
         driver.findElement(loginButton).click();
+    }
+
+    public void authErrorMessage() {
+        driver.findElement(wrongCredentialsButton).getText();
+    }
+
+    public void checkErrorAuthMessage(String message) {
+       String actualMessage = driver.findElement(wrongCredentialsButton).getText();
+        Assert.assertEquals(actualMessage, message);
     }
 }

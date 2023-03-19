@@ -20,9 +20,14 @@ public class CoreTest {
     protected YourCartPage yourCartPage = new YourCartPage(driver);
     protected CheckoutYourInfoPage checkoutYourInfoPage = new CheckoutYourInfoPage(driver);
     protected CheckoutOverviewPage checkoutOverviewPage = new CheckoutOverviewPage(driver);
-   protected CheckoutCompletePage checkoutCompletePage = new CheckoutCompletePage(driver);
+    protected CheckoutCompletePage checkoutCompletePage = new CheckoutCompletePage(driver);
 
-   protected PrimaryHeader primaryHeader = new PrimaryHeader(driver);
+    protected PrimaryHeader primaryHeader = new PrimaryHeader(driver);
+
+    @BeforeTest
+    public void openURI() {
+        corePage.openUrl("https://www.saucedemo.com/");
+    }
 
     @AfterTest
     public void clearCookies() {
@@ -31,8 +36,10 @@ public class CoreTest {
             driver.manage().deleteAllCookies();
             javascriptExecutor.executeScript("window.sessionStorage.clear()");
         }
+        driver.close();
     }
-    @AfterSuite(alwaysRun = true)
+
+    @AfterSuite
     public void close() {
         driver.quit();
     }

@@ -8,7 +8,6 @@ public class BuyItemTest extends CoreTest {
     @Test
     @Tag("BuyingItem")
     public void itemBoughtCase() {
-        corePage.openUrl("https://www.saucedemo.com/");
         loginPage.enterCredetials("standard_user", "secret_sauce");
         loginPage.clickLogin();
         primaryHeader.shoppingCartLinkIsVisible();

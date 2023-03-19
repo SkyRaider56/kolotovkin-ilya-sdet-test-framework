@@ -1,12 +1,16 @@
 package org.example.tests.SwagLabs;
 
+import io.qameta.allure.Feature;
 import io.qameta.allure.testng.Tag;
 import org.example.tests.CoreTest;
+import org.example.tests.Utils.Listener;
 import org.junit.Test;
+import org.testng.annotations.Listeners;
 
+@Listeners({Listener.class})
+@Feature("BuyingItem")
 public class BuyItemTest extends CoreTest {
     @Test
-    @Tag("BuyingItem")
     public void itemBoughtCase() {
         loginPage.enterCredetials("standard_user", "secret_sauce");
         loginPage.clickLogin();

@@ -6,6 +6,7 @@ import org.example.configClasses.CorePage;
 import org.example.pages.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -21,7 +22,6 @@ public class CoreTest {
     protected CheckoutYourInfoPage checkoutYourInfoPage = new CheckoutYourInfoPage(driver);
     protected CheckoutOverviewPage checkoutOverviewPage = new CheckoutOverviewPage(driver);
     protected CheckoutCompletePage checkoutCompletePage = new CheckoutCompletePage(driver);
-
     protected PrimaryHeader primaryHeader = new PrimaryHeader(driver);
 
     @BeforeTest
@@ -36,10 +36,8 @@ public class CoreTest {
             driver.manage().deleteAllCookies();
             javascriptExecutor.executeScript("window.sessionStorage.clear()");
         }
-        driver.close();
     }
-
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void close() {
         driver.quit();
     }

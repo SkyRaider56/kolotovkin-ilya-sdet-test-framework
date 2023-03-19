@@ -17,7 +17,7 @@ public class YourCartPage extends CorePage {
 
 
     public void chosenItemInCartName(String itemName) {
-        itemName = driver.findElement(inventoryItemName).getText();
+        itemForChoosingNameText = driver.findElement(inventoryItemName).getText();
         Assert.assertEquals(itemName, itemForChoosingNameText);
     }
 

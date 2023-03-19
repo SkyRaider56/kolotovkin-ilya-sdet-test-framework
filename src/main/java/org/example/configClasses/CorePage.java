@@ -1,11 +1,15 @@
 package org.example.configClasses;
 
+import org.apache.tools.ant.types.Environment;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.example.configClasses.Config.TimeOutVariable.EXPLICIT_WAIT;
+import java.time.Duration;
+
+import static org.example.configClasses.Config.EXPLICIT_WAIT;
+
 
 public class CorePage {
     private static final Pages pages = Pages.getInstance();

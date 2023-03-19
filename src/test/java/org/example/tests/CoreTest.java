@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 import static org.example.configClasses.Config.CLEAR_COOKIES;
 
@@ -23,6 +24,12 @@ public class CoreTest {
 
    protected PrimaryHeader primaryHeader = new PrimaryHeader(driver);
 
+   @BeforeTest
+   public void openAndLogin() {
+       corePage.openUrl("{baseURI}");
+       loginPage.enterCredetials();
+       loginPage.clickLogin();
+   }
     @AfterTest
     public void clearCookies() {
         if (CLEAR_COOKIES) {

@@ -19,9 +19,9 @@ public class CheckoutYourInfoPage extends CorePage {
 
     // TODO достать инфу из USERS
     public void typeMyInfo() {
-        driver.findElement(firstNameInputField).sendKeys("");
-        driver.findElement(lastNameInputField).sendKeys("");
-        driver.findElement(zipCodeInputField).sendKeys("");
+        driver.findElement(firstNameInputField).sendKeys("Ilya");
+        driver.findElement(lastNameInputField).sendKeys("Kolotovkin");
+        driver.findElement(zipCodeInputField).sendKeys("630511");
     }
     public void clickContinue() {
         driver.findElement(continueButton).click();

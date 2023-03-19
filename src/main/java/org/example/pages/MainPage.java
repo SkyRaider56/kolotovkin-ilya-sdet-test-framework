@@ -11,7 +11,7 @@ public class MainPage extends CorePage {
         super(driver);
     }
     static public String itemForChoosingNameText;
-    private By addToCartSauceLabsBackpack = By.xpath("//*[@id=\"add-to-cart-sauce-labs-bike-light\"]");
+    private By addToCartSauceLabsBackpack = By.xpath("//*[@id=\"add-to-cart-sauce-labs-backpack\"]");
     private By itemForChoosingName = By.xpath("//*[@id=\"item_4_title_link\"]/div[@class=\"inventory_item_name\"]");
 
     public void addToCartFirstItem() {

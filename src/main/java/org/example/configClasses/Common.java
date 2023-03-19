@@ -2,6 +2,8 @@ package org.example.configClasses;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
@@ -15,13 +17,19 @@ public class Common {
         switch (BROWSER) {
             case "chrome":
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver111.exe"); // TODO Допилить
-                driver = new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--remote-allow-origins=*");
+                driver = new ChromeDriver(options);
+                break;
+            case "firefox":
+                System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe"); // TODO Допилить
+                driver = new FirefoxDriver();
                 break;
             default:
                 Assert.fail("Incorrect browser name: " + BROWSER);
         }
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS); // TODO Хардкод убрать, вынести в константу
+        driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
         return driver;
     }
 }

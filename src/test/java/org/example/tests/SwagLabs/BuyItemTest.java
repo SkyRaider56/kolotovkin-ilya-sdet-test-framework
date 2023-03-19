@@ -2,18 +2,13 @@ package org.example.tests.SwagLabs;
 
 import org.example.tests.CoreTest;
 import org.junit.Test;
-import org.testng.annotations.BeforeTest;
 
 public class BuyItemTest extends CoreTest {
-
-    @BeforeTest
-    public void openAndLogin() {
-        corePage.openUrl("{baseURI}");
-        loginPage.enterCredetials();
-        loginPage.clickLogin();
-    }
     @Test
     public void itemBoughtCase() {
+        corePage.openUrl("https://www.saucedemo.com/");
+        loginPage.enterCredetials();
+        loginPage.clickLogin();
         primaryHeader.shoppingCartLinkIsVisible();
         mainPage.addToCartFirstItem();
         primaryHeader.shoppingCartBadgeIsVisible(true);
@@ -21,7 +16,7 @@ public class BuyItemTest extends CoreTest {
         primaryHeader.goToCart();
         // Преходим в саму корзину
         // TODO вытащить данные из constants.json
-        yourCartPage.chosenItemInCartName("{constantsFile}");
+        yourCartPage.chosenItemInCartName("Sauce Labs Backpack");
         primaryHeader.shoppingCartBadgeIsVisible(true);
         primaryHeader.setShoppingCartHasItems(1);
         yourCartPage.checkoutClick();
@@ -29,7 +24,8 @@ public class BuyItemTest extends CoreTest {
         checkoutYourInfoPage.typeMyInfo();
         checkoutYourInfoPage.clickContinue();
         // CheckoutOverview
-        checkoutOverviewPage.chosenItemInOverviewName("{constantsFile}");
+        // TODO вытащить данные из constants.json
+        checkoutOverviewPage.chosenItemInOverviewName("Sauce Labs Backpack");
         primaryHeader.shoppingCartBadgeIsVisible(true);
         primaryHeader.setShoppingCartHasItems(1);
         checkoutOverviewPage.clickFinish();

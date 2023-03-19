@@ -11,18 +11,17 @@ public class LoginPage extends CorePage {
     private By loginPage = By.cssSelector("div[class='login_container']");
     private By userNameInputField = By.xpath("//input[@id='user-name']");
     private By userPasswordInputField = By.xpath("//input[@id='password']");
-    private By loginButton = By.xpath("input[type='submit']");
+    private By loginButton = By.xpath("//input[@id='login-button']");
     private By wrongCredentialsButton = By.cssSelector("h3[data-test='error']");
 
     // TODO эксепшены на методы
     public LoginPage enterCredetials () {
-        driver.findElement(userNameInputField).sendKeys();
-        driver.findElement(userPasswordInputField).sendKeys();
+        driver.findElement(userNameInputField).sendKeys("standard_user");
+        driver.findElement(userPasswordInputField).sendKeys("secret_sauce");
         return this;
     }
 
-    public LoginPage clickLogin() {
+    public void clickLogin() {
         driver.findElement(loginButton).click();
-        return this;
     }
 }

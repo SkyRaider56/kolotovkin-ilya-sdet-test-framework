@@ -2,7 +2,9 @@ package org.example.pages;
 
 import org.example.configClasses.CorePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class PrimaryHeader extends CorePage {
@@ -10,16 +12,19 @@ public class PrimaryHeader extends CorePage {
         super(driver);
     }
 
-    private By shoppingCartLink = By.xpath("//*[@id=\"shopping_cart_link\"]");
-    private By shoppingCartBadge = By.xpath("//*[@id=\"shopping_cart_badge\"]");
+    private By shoppingCartLink = By.xpath("//*[@class='shopping_cart_link']");
+    private By shoppingCartBadge = By.xpath("//*[@class='shopping_cart_badge']");
 
     // TODO видимость элементов в одельный метод
-    public void shoppingCartBadgeIsVisible(Boolean vivible) {
-        if (driver.findElement(shoppingCartBadge).isDisplayed()) {
-            vivible = true;
-        } else {
-            vivible = false;
+    public void shoppingCartBadgeIsVisible(Boolean expected) {
+        Boolean visible;
+        try {
+        driver.findElement(shoppingCartBadge).isDisplayed();
+            visible = true;
+        } catch (NoSuchElementException e) {
+            visible = false;
         }
+        Assert.assertEquals(visible, expected);
     }
 
     public void goToCart() {

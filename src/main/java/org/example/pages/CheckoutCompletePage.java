@@ -15,11 +15,9 @@ public class CheckoutCompletePage extends CorePage {
     // TODO вытащить из контстант
     public void checkThanksForOrderText() {
         thanksForOrderActualText = driver.findElement(thanksForOrderText).getText();
-        Assert.assertEquals(thanksForOrderActualText, "константа");
+        Assert.assertEquals(thanksForOrderActualText, "Thank you for your order!");
     }
-
     public void checkRedirect() {
-       Assert.assertEquals(driver.getCurrentUrl().toString(), "{url.checkoutComplete}");
+       Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/checkout-complete.html");
     }
-
 }

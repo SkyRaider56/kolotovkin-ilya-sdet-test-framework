@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true"
-          name="Sibmir SDET">
+    <test name="Sibmir SDET" preserve-order="true" thread-count="10" parallel="methods">
         <classes>
-            <class name="org.example.tests.SwagLabs.LoginFailed">
-                <methods>
-                    <include name="authFailed"/>
-                </methods>
-            </class>
+            <class name="org.example.tests.SwagLabs.LoginFailed"/>
+            <class name="org.example.tests.SwagLabs.BuyItemTest"/>
         </classes>
     </test>
 </suite>

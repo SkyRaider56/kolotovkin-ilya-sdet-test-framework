@@ -1,10 +1,12 @@
 package org.example.tests.SwagLabs;
 
+import io.qameta.allure.testng.Tag;
 import org.example.tests.CoreTest;
 import org.junit.Test;
 
 public class BuyItemTest extends CoreTest {
     @Test
+    @Tag("BuyingItem")
     public void itemBoughtCase() {
         corePage.openUrl("https://www.saucedemo.com/");
         loginPage.enterCredetials("standard_user", "secret_sauce");

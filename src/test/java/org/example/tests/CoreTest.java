@@ -21,6 +21,8 @@ public class CoreTest {
     protected CheckoutOverviewPage checkoutOverviewPage = new CheckoutOverviewPage(driver);
    protected CheckoutCompletePage checkoutCompletePage = new CheckoutCompletePage(driver);
 
+   protected PrimaryHeader primaryHeader = new PrimaryHeader(driver);
+
     @AfterTest
     public void clearCookies() {
         if (CLEAR_COOKIES) {

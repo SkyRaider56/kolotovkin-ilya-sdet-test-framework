@@ -14,18 +14,22 @@ public class PrimaryHeader extends CorePage {
     private By shoppingCartBadge = By.xpath("//*[@id=\"shopping_cart_badge\"]");
 
     // TODO видимость элементов в одельный метод
-    public void shoppingCartBadgeIsVisible() {
-        driver.findElement(shoppingCartBadge).isDisplayed();
+    public void shoppingCartBadgeIsVisible(Boolean vivible) {
+        if (driver.findElement(shoppingCartBadge).isDisplayed()) {
+            vivible = true;
+        } else {
+            vivible = false;
+        }
     }
 
     public void goToCart() {
         driver.findElement(shoppingCartLink).click();
     }
 
-
     public void shoppingCartLinkIsVisible() {
         driver.findElement(shoppingCartLink).isDisplayed();
     }
+
 
     // TODO убрать хардкод колличества товаров
     public void setShoppingCartHasItems(int count) {

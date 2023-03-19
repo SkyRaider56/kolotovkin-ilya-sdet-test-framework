@@ -12,18 +12,17 @@ public class BuyItemTest extends CoreTest {
         loginPage.enterCredetials();
         loginPage.clickLogin();
     }
-
     @Test
     public void itemBoughtCase() {
         primaryHeader.shoppingCartLinkIsVisible();
         mainPage.addToCartFirstItem();
-        primaryHeader.shoppingCartBadgeIsVisible();
+        primaryHeader.shoppingCartBadgeIsVisible(true);
         primaryHeader.setShoppingCartHasItems(1);
         primaryHeader.goToCart();
         // Преходим в саму корзину
         // TODO вытащить данные из constants.json
         yourCartPage.chosenItemInCartName("{constantsFile}");
-        primaryHeader.shoppingCartBadgeIsVisible();
+        primaryHeader.shoppingCartBadgeIsVisible(true);
         primaryHeader.setShoppingCartHasItems(1);
         yourCartPage.checkoutClick();
         // Вводим данные
@@ -31,11 +30,13 @@ public class BuyItemTest extends CoreTest {
         checkoutYourInfoPage.clickContinue();
         // CheckoutOverview
         checkoutOverviewPage.chosenItemInOverviewName("{constantsFile}");
-        primaryHeader.shoppingCartBadgeIsVisible();
+        primaryHeader.shoppingCartBadgeIsVisible(true);
         primaryHeader.setShoppingCartHasItems(1);
         checkoutOverviewPage.clickFinish();
         // Thanks for order
         checkoutCompletePage.checkThanksForOrderText();
-        // добавить проверки, что нет красного кружка
+        // Красного кружка нету
+        primaryHeader.shoppingCartBadgeIsVisible(false);
+        checkoutCompletePage.checkRedirect();
     }
 }
